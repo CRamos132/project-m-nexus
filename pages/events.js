@@ -22,7 +22,7 @@ const Events = () => {
             <TopBar />
             <Body>
                 <Wrapper>
-                    <Wrapper.Title>Events</Wrapper.Title>
+                    <Wrapper.Title>Events </Wrapper.Title>
                     {/* <EventCard />
                     <EventCard /> */}
                     {events?.map((event, index) => {
