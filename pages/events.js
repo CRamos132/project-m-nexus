@@ -8,7 +8,7 @@ import EventCard from '../components/layout/EventCard'
 const Events = () => {
     const [events, setEvents] = React.useState([])
     React.useEffect(()=>{
-        console.log(process.env.FIREBASE_AUTH_DOMAIN)
+        console.log(process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN)
         firestore.collection('events').get().then((data)=>{
             const event = []
             for(let documentos of data.docs){
