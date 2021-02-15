@@ -12,7 +12,6 @@ import TopBar from '../components/layout/TopBar'
 const NewEvent = () => {
     const form = useForm()
     const onSubmit = (data) => {
-        console.log(data)
         const event = {
             name: data.name,
             url: data.link,
