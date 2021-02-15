@@ -21,7 +21,7 @@ const Events = () => {
             <TopBar />
             <Body>
                 <Wrapper>
-                    <Wrapper.Title>Events</Wrapper.Title>
+                    <Wrapper.Title>Events{process.env.FIREBASE_AUTH_DOMAIN}</Wrapper.Title>
                     {/* <EventCard />
                     <EventCard /> */}
                     {events?.map((event, index) => {
