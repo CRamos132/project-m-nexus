@@ -6,17 +6,8 @@ import TopBar from '../components/layout/TopBar'
 import EventCard from '../components/layout/EventCard'
 import SideBar from '../components/layout/SideBar'
 
-const Events = () => {
-    const [events, setEvents] = React.useState([])
-    React.useEffect(()=>{
-        firestore.collection('events').get().then((data)=>{
-            const event = []
-            for(let documentos of data.docs){
-                event.push(documentos.data())
-            }
-            setEvents(event)
-        })
-    }, [])
+const Events = ({events}) => {
+    
     return (
         <>
             <TopBar />
@@ -30,5 +21,26 @@ const Events = () => {
         </>
     )
 }
+
+export async function getServerSideProps(context) {
+
+    const data = await firestore.collection('events').get().then((data)=>{
+        const event = []
+        for(let documentos of data.docs){
+            event.push(documentos.data())
+        }
+        return event
+    })
+  
+    if (!data) {
+      return {
+        notFound: true,
+      }
+    }
+  
+    return {
+      props: {events: data},
+    }
+  }
 
 export default Events
