@@ -4,11 +4,11 @@ import Wrapper from "../components/layout/Wrapper"
 import Body from '../components/layout/Body'
 import TopBar from '../components/layout/TopBar'
 import EventCard from '../components/layout/EventCard'
+import SideBar from '../components/layout/SideBar'
 
 const Events = () => {
     const [events, setEvents] = React.useState([])
     React.useEffect(()=>{
-        console.log(process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN)
         firestore.collection('events').get().then((data)=>{
             const event = []
             for(let documentos of data.docs){
@@ -23,12 +23,9 @@ const Events = () => {
             <Body>
                 <Wrapper>
                     <Wrapper.Title>Events </Wrapper.Title>
-                    {/* <EventCard />
-                    <EventCard /> */}
-                    {events?.map((event, index) => {
-                        return (<EventCard event={event} />)
-                    })}
+                    {events?.map((event) => <EventCard event={event} />)}
                 </Wrapper>
+                <SideBar />
             </Body>
         </>
     )

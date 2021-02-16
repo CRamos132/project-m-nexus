@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     padding: 15vh 5% 5%;
     background: rgba(98,0,238, 0.2);
     width: 50%;
+    min-width: 390px;
     border: 1px solid ${props => props.theme.colors.primary};
     border-radius: 16px;
     overflow: hidden;

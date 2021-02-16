@@ -4,6 +4,7 @@ const Card = styled.div`
     display: flex;
     flex-direction: row;
     width: 90%;
+    min-width: 350px;
     margin: 16px;
     border: 1px solid ${props => props.theme.colors.primary};
     border-radius: 12px;

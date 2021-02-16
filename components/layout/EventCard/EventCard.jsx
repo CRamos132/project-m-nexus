@@ -6,7 +6,7 @@ const EventCard = ({event}) => {
     <Card>
         <Image 
             src='https://via.placeholder.com/150' 
-            alt="Picture of the author"
+            alt={`${event.name} event logo`}
             width={150}
             height={150} 
         />
