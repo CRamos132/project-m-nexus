@@ -14,7 +14,7 @@ const Events = ({events}) => {
             <Body>
                 <Wrapper>
                     <Wrapper.Title>Events </Wrapper.Title>
-                    {events?.map((event) => <EventCard event={event} />)}
+                    {events?.map((event, index) => <EventCard key={`event_${index}`} event={event} />)}
                 </Wrapper>
                 <SideBar />
             </Body>
@@ -22,7 +22,7 @@ const Events = ({events}) => {
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
     const data = await firestore.collection('events').get().then((data)=>{
         const event = []
@@ -31,6 +31,7 @@ export async function getServerSideProps(context) {
         }
         return event
     })
+    const time = 1 * 60 * 5;
   
     if (!data) {
       return {
@@ -40,6 +41,7 @@ export async function getServerSideProps(context) {
   
     return {
       props: {events: data},
+      revalidate: time
     }
   }
 
