@@ -19,9 +19,9 @@ const StreamCard = ({stream, token}) => {
                 {data.is_live ? (
                     <iframe
                         src={`https://player.twitch.tv/?${data.broadcaster_login}&parent=project-m-nexus.vercel.app`}
-                        height="<height>"
-                        width="<width>"
-                        allowFullScreen="<allowfullscreen>">
+                        height="300"
+                        width="400"
+                        allowFullScreen={true}>
                     </iframe>
                 ) : <p>Not live</p>}
             </div>
