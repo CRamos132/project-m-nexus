@@ -15,7 +15,7 @@ const StreamCard = ({stream, token}) => {
         {data && (
             <div>
                 <h1>{data.display_name}</h1>
-                {/* <h2>{data.title}</h2> */}
+                <h3>{data.title}</h3>
                 {data.is_live ? (
                     <iframe
                         src={`https://player.twitch.tv/?channel=${data.broadcaster_login}&parent=project-m-nexus.vercel.app`}
