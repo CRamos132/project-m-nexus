@@ -7,7 +7,6 @@ import EventCard from '../components/layout/EventCard'
 import SideBar from '../components/layout/SideBar'
 
 const Events = ({events}) => {
-    
     return (
         <>
             <TopBar />
@@ -16,7 +15,7 @@ const Events = ({events}) => {
                     <Wrapper.Title>Events </Wrapper.Title>
                     {events?.map((event, index) => <EventCard key={`event_${index}`} event={event} />)}
                 </Wrapper>
-                <SideBar />
+                {/* <SideBar /> */}
             </Body>
         </>
     )

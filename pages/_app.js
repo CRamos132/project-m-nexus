@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,6 +14,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: Roboto;
   }
 `
+
+const queryClient = new QueryClient()
 
 const theme = {
   colors: {
@@ -34,7 +37,9 @@ export default function App({ Component, pageProps }) {
           <link rel="preconnect" href="https://fonts.gstatic.com" /> 
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
         </Head>
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </ThemeProvider>
     </>
   )

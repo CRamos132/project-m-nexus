@@ -13,6 +13,9 @@ const TopBar = () => {
                     <Link href='/'>Home</Link>
                 </Bar.Item>
                 <Bar.Item>
+                    <Link href='/streams'>Streams</Link>
+                </Bar.Item>
+                <Bar.Item>
                     <Link href='/events'>Events</Link>
                 </Bar.Item>
                 <Bar.Item>
